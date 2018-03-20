@@ -17,18 +17,23 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     //     console.log('Unable to connect to the database')
     // })
 
-    db.collection('Todos').find({completed: false}).count().then((docs) =>{
-        console.log('Todos')
-        console.log(JSON.stringify(docs, undefined, 2))
-    }, (err)=>{
-        console.log('Unable to connect to the database')
-    })
+    // db.collection('Todos').find({completed: false}).count().then((docs) =>{
+    //     console.log('Todos')
+    //     console.log(JSON.stringify(docs, undefined, 2))
+    // }, (err)=>{
+    //     console.log('Unable to connect to the database')
+    // })
 
-    db.collection('Users').find({name: 'Nikhil'}).count().then((docs) =>{
-        console.log('Todos')
+    // db.collection('Users').find({name: 'Nikhil'}).count().then((docs) =>{
+    //     console.log('Todos:' + docs)
+        
+    // }, (err)=>{
+    //     console.log('Unable to connect to the database')
+    // })
+
+
+    db.collection('Users').find({name: 'Nikhil'}).toArray().then((docs)=>{
         console.log(JSON.stringify(docs, undefined, 2))
-    }, (err)=>{
-        console.log('Unable to connect to the database')
     })
 
     // db.close();
